@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="open.mediaMarketMapper">
+	<!-- 通用 sql 语句 -->
+	<sql id="dateConditionSql">
+		<if test="startDay == endDay ">
+			and day between #{startDay} and #{endDay} and hour between #{startHour} and #{endHour} 
+		</if>
+		<if test="startDay != endDay ">
+			and ( (day = #{endDay} and hour &lt;= #{endHour}) 
+			or (day = #{startDay} and hour &gt;= #{startHour}) 
+			or (day &gt; #{startDay} and day &lt; #{endDay})) 
+		</if> 
+	</sql>
+
+	<!-- PV 总数 -->
+	<select id="getPvTotalData" resultType="loginUser" parameterType="map">
+		select day, hour, pv from pageview_data_hour where d_dimeid = 0 and s_dimeid = 0 
+		<include refid="dateConditionSql"/> 
+		order by day,hour 
+	</select>
+	
+</mapper>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- 读取数据源配置文件 -->
+	<bean id="dataSoucresConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="classpath:config/properties/dbConfig.properties" />
+	</bean>
+
+	<!-- 使用annotation自动注册bean，并保证@Required，@Autowired的属性被注入 -->
+    <context:annotation-config />
+	<context:component-scan base-package="com.ysq.hebtrain" />
+	
+	<!-- 自动AOP切面 -->
+	<aop:aspectj-autoproxy />
+	
+	<!-- 数据源基本配置 -->
+	<bean id="basicDataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClass}" />
+		<property name="idleConnectionTestPeriodInMinutes" value="${jdbc.idleConnectionTestPeriodInMinutes}" />
+		<property name="idleMaxAgeInMinutes" value="${jdbc.idleMaxAgeInMinutes}" />
+		<property name="maxConnectionsPerPartition" value="${jdbc.maxConnectionsPerPartition}" />
+		<property name="minConnectionsPerPartition" value="${jdbc.minConnectionsPerPartition}" />
+		<property name="partitionCount" value="${jdbc.partitionCount}" />
+		<property name="acquireIncrement" value="${jdbc.acquireIncrement}" />
+		<property name="statementsCacheSize" value="${jdbc.statementsCacheSize}" />
+		<property name="logStatementsEnabled" value="${jdbc.logStatementsEnabled}" />
+	</bean>
+	
+	<!-- md DBSource -->
+	<bean id="mdDBSource" parent="basicDataSource">
+		<property name="jdbcUrl" value="${jdbc.url.dbUrl}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	
+	<!-- data source 抽象类 -->
+	<bean id="absDataSource" class="com.ysq.hebtrain.common.dbsource.DynamicDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry value-ref="mdDBSource" key="mddb"></entry>
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="mdDBSource"></property>
+	</bean>
+	
+	<!-- MyBatis SQLSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="absDataSource" />
+		<property name="configLocation" value="classpath:config/mybatis/Configuration.xml" />
+		<property name="mapperLocations">
+			<list>
+				<value>classpath*:config/mybatis/sqlMapper/common/*.xml</value>
+				<value>classpath*:config/mybatis/sqlMapper/webview/*.xml</value>
+				<value>classpath*:config/mybatis/sqlMapper/setting/*.xml</value>
+				<value>classpath*:config/mybatis/sqlMapper/open/*.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	
+	<!-- 事务管理器注解配置 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+    	<property name="dataSource" ref="absDataSource" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+</beans>

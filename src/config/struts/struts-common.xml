@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<include file="config/struts/struts-basic.xml"></include>
+
+	<package name="userLogin" namespace="/" extends="struts-default">
+		
+		<!-- 登录 -->
+		<action name="login" class="userLoginAction" method="login" >
+			<result name="login">page/common/basic/login.jsp</result>
+			<result name="success" type="redirect">fun</result>
+		</action>
+		
+		<!-- 注销 -->
+		<action name="logout" class="userLoginAction" method="logout" >
+			<result name="login" type="redirect">/login</result>
+			<result name="success" type="redirect">fun</result>
+		</action>
+		
+		<!-- 修改密码 -->
+		<action name="editPassword" class="userLoginAction" method="editPassword"></action>
+		
+		<!-- 跳转功能 -->
+		<action name="opfun" class="userLoginAction" method="opfun" />
+		
+	</package>
+	
+	<!-- 以下action 需拦截器 -->
+	<package name="menuToobar" namespace="/" extends="heb_default">
+		<!-- 跳转功能 -->
+		<action name="fun" class="userLoginAction" method="fun" />
+	
+		<!-- 主界面 -->
+		<action name="mainPage" class="userLoginAction" method="mainPage" >
+			<result name="success">page/common/basic/mainPage.jsp</result>
+			<result name="notFound">404.jsp</result>
+		</action>
+		
+		
+	</package>
+	
+</struts>

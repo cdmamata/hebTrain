@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="common.userLoginMapper">
+
+	<!-- 用户登录 -->
+	<select id="userLogin" resultType="loginUser" parameterType="loginUser">
+		select u.userId, u.userName, cus.cusId, cus.cusName, cus.act from heb_user u 
+		inner join heb_customer cus on u.cusId = cus.cusId where 
+		u.userName = #{userName} and u.password = #{password} and u.status = 1 
+	</select>
+	
+	<!-- 查找用户权限 -->
+	<select id="getUserFunction" resultType="functionInfo" parameterType="loginUser">
+		select nfa.actionValue, nfi.k, nfi.functionName from heb_user_function nuf inner join 
+		heb_function_info nfi on nuf.functionId = nfi.functionId inner join heb_function_action nfa 
+		on nfi.actionId = nfa.actionId where userId = #{userId} 
+		order by nfi.index, nfi.functionId 
+	</select>
+	
+	<!-- 查找用户私有 url -->
+	<select id="getFunUrl" resultType="string" parameterType="map">
+		select nfi.functionUrl from heb_user_function nuf inner join heb_function_info nfi on nuf.functionId = nfi.functionId 
+		inner join heb_function_action nfa on nfi.actionId = nfa.actionId where userId = #{userId} 
+		and nfa.actionValue = #{actionValue} and nfi.k = #{k} limit 0,1 
+	</select>
+	
+	<!-- 查询开放url -->
+	<select id="getOpenFunUrl" resultType="string" parameterType="map">
+		select nfi.functionUrl from heb_function_info nfi inner join heb_function_action nfa on 
+		nfi.actionId = nfa.actionId where 
+		nfa.actionValue = #{actionValue} and nfi.k = #{k} limit 0,1 
+	</select>
+	
+	<!-- 修改密码第一步：检查原始密码是否正确 -->
+	<select id="checkOldPassword" resultType="loginUser" parameterType="loginUser">
+		select userId, userName from heb_user where userName = #{userName} and password = #{password} limit 0,1 
+	</select>
+	
+	<!-- 修改密码 -->
+	<update id="editPassword" parameterType="loginUser">
+		update heb_user set password = #{newPassword} where userId = #{userId} 
+	</update>
+	
+</mapper>

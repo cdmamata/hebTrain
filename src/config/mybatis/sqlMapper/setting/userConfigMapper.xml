@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="setting.userConfigMapper">
+
+	<!-- 获得customer 树节点 -->
+	<select id="getCustomerTree" resultType="treePanelNode" parameterType="string">
+		select cusId as id, cusName as text, act, status, sort, 'true' as leaf from heb_customer where status != 0 order by id
+	</select>
+	
+	<!-- 获得用户信息总数 -->
+	<select id="getUserTotal" resultType="int" parameterType="map">
+		select count(*) from heb_user u inner join heb_customer cus on u.cusId = cus.cusId 
+		<if test="cusId != null and cusId != 0">
+		where cus.cusId = #{cusId} 
+		</if>
+	</select>
+	
+	<!-- 获得用户信息列表 -->
+	<select id="findAllUser" resultType="loginUser" parameterType="map">
+		select u.userId, u.userName, u.status, cus.cusId, cus.cusName, cus.act from heb_user u 
+		inner join heb_customer cus on u.cusId = cus.cusId 
+		<if test="cusId != null and cusId != 0">
+		where cus.cusId = #{cusId} 
+		</if>
+		order by userId asc limit #{start},#{limit} 
+	</select>
+	
+	<!-- 获得customer 树节点 -->
+	<select id="getCustomerComb" resultType="hebCustomer">
+		select cusId, `cusName`, act, `status`, sort from heb_customer where `status` != 0 
+		order by sort
+	</select>
+	
+	<!-- 检测用户名唯一 -->
+	<select id="checkUserName" resultType="int" parameterType="loginUser">
+		select count(*) from heb_user where userId != #{userId} and userName = #{userName} 
+	</select>
+	
+	<!-- 插入用户 -->
+	<insert id="insertUser" parameterType="loginUser">
+		insert into heb_user (userName, `password`, cusId, `status`) values (#{userName}, #{password}, #{cusId}, #{status})
+	</insert>
+	
+	<!-- 修改用户 -->
+	<update id="editUser" parameterType="loginUser">
+		update heb_user set userName = #{userName}, `password` = #{password}, `status` = #{status} where userId = #{userId}
+	</update>
+	
+	<!-- 删除用户所有权限 -->
+	<delete id="deleteUserAllFunction" parameterType="string">
+		delete from heb_user_function where userId in (${_parameter}) 
+	</delete>
+	
+	<!-- 删除用户 -->
+	<delete id="deleteUser" parameterType="string">
+		delete from heb_user where userId in (${_parameter}) 
+	</delete>
+	
+	<!-- 获得用户权限列表 -->
+	<select id="getUserFunction" resultType="functionInfo" parameterType="loginUser">
+		select uf.userId, nfi.functionId, nfi.k, nfi.functionName, nfi.functionUrl, nfi.index, fa.actionId, fa.actionValue, fa.remarks from heb_user_function uf 
+		inner join heb_function_info nfi on uf.functionId = nfi.functionId inner join heb_function_action fa on nfi.actionId = fa.actionId 
+		where uf.userId = #{userId} 
+		order by nfi.index, nfi.functionId 
+	</select>
+	
+	<!-- 获得用户不存在的权限 -->
+	<select id="getHaventFunction" resultType="functionInfo" parameterType="loginUser">
+		select nfi.functionId, nfi.k, nfi.functionName, nfi.functionUrl, nfi.index, nfa.actionId, nfa.actionValue, nfa.remarks 
+		from heb_function_info nfi inner join heb_function_action nfa on nfi.actionId = nfa.actionId 
+		where functionId not in (
+		select functionId from heb_user_function 
+		where userId = #{userId} 
+		) order by nfi.index, nfi.functionId 
+	</select>
+	
+	<!-- 新增用户权限 -->
+	<insert id="addUserFunction" parameterType="functionInfo">
+		insert into heb_user_function (userId, functionId) values (#{userId}, #{functionId}) 
+	</insert>
+	
+	<!-- 删除指定用户权限 -->
+	<delete id="deleteUserFunction" parameterType="map">
+		delete from heb_user_function where userId = #{userId} and functionId in (${functionIdArrayStr})
+	</delete>
+</mapper>

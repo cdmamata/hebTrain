@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<include file="config/struts/struts-basic.xml"></include>
+	
+	<!-- 以下action 需拦截器 -->
+	<package name="setting" namespace="/setting" extends="heb_default">
+		<!-- 功能配置 action -->
+		<action name="functionConfig_*" class="functionConfigAction" method="{1}"></action>
+		
+		<!-- 用户配置 -->
+		<action name="userConfig_*" class="userConfigAction" method="{1}"></action>
+		
+	</package>
+</struts>

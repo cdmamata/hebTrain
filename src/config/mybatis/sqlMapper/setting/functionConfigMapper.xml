@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="setting.functionConfigMapper">
+
+	<!-- 查询所有功能 -->
+	<select id="getAllFunction" resultType="functionInfo">
+		select nfi.functionId, nfi.k, nfi.functionName, nfi.functionUrl, nfi.index, nfa.actionid, nfa.actionValue from heb_function_info nfi 
+		inner join heb_function_action nfa on nfi.actionId = nfa.actionId order by nfi.functionId
+	</select>
+	
+	<!-- 查询所有 action -->
+	<select id="getAllAction" resultType="functionInfo">
+		select actionId, actionValue, remarks from heb_function_action 
+	</select>
+	
+	<!-- 检查k 是否唯一 -->
+	<select id="checkKUnique" resultType="int" parameterType="functionInfo">
+		select count(*) from heb_function_info where functionId != #{functionId} and k = #{k}
+	</select>
+	
+	<!-- 插入新的 function -->
+	<insert id="insertNewFunction" parameterType="functionInfo">
+		insert into heb_function_info (actionId, k, functionName, functionUrl, `index`) 
+		values (#{actionId}, #{k}, #{functionName}, #{functionUrl}, #{index})
+	</insert>
+	
+	<!-- 修改function -->
+	<update id="editFunctionInfo" parameterType="functionInfo">
+		update heb_function_info set actionId = #{actionId}, k= #{k}, functionName = #{functionName}, 
+		functionUrl = #{functionUrl}, `index` = #{index} where functionId = #{functionId} 
+	</update>
+	
+	<!-- 删除用户权限 -->
+	<delete id="deleteUserFunctionId" parameterType="string">
+		delete from heb_user_function where functionId in (${_parameter}) 
+	</delete>
+	
+	<!-- 删除function -->
+	<delete id="deleteFunctionInfo" parameterType="string">
+		delete from heb_function_info where functionId in (${_parameter}) 
+	</delete>
+</mapper>

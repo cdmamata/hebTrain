@@ -1,0 +1,33 @@
+/* 覆盖css 解决表头汉字显示不全 */
+.x-column-header-text {
+	white-space: nowrap;
+	background-repeat: no-repeat;
+	zoom: 1;
+	display: inline-block;
+	line-height: 15px;
+}
+
+/* 表格中的按钮 */
+span.spButton{
+	color : #0000FF !important;
+	background-color: #F5F5F5;
+	font-size: 12px;
+	border: solid 1px #9D9D9D;
+	padding: 0;
+}
+span.spButton a{
+	color : #0000FF !important;
+	padding: 0 2px 0 2px;
+	text-decoration: none;
+}
+span.spButton:hover{
+	color: #555555 !important;
+	background-color: #CBCBCB;
+	cursor: hand;
+}
+span.spButton a:hover{
+	color: #555555 !important;
+	background-color: #CBCBCB;
+	border: 0;
+	cursor: hand;
+}

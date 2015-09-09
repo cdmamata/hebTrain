@@ -1,0 +1,37 @@
+▲General
+
+Remote Address:119.254.107.121:80
+Request URL:http://hb2015.px.teacher.com.cn/home/student/127/course/updateLearnTime
+Request Method:POST
+Status Code:200 OK
+
+
+========================================================================================================================================================
+
+▲Response Headers  
+
+Connection:Keep-alive
+Content-Length:34
+Content-Type:text/plain;charset=UTF-8
+Date:Wed, 29 Jul 2015 02:49:27 GMT
+Keep-Alive:timeout=15, max=100
+Server:nginx/1.2.4
+Set-Cookie:TP_ROLE_TYPE=6; Domain=.px.teacher.com.cn; Expires=Thu, 30-Jul-2015 02:49:27 GMT; Path=/
+Set-Cookie:TP_ROLE_TYPE=6; Domain=.teacher.com.cn; Expires=Thu, 30-Jul-2015 02:49:27 GMT; Path=/
+Set-Cookie:c_static_ht=d8292dds21112fy965j; Domain=.teacher.com.cn; Path=/
+Set-Cookie:hb2015=r-hb2015-2.55; Path=/
+Set-Cookie:s_d0=eNqFk89v0zAUx7vRdW23ISQunBBCHDi0UZKSpa1AAoWyFbp0rC2wcShu4rWGNI5iZ2wgBExo4oAYv5nEDwmE4ML4MYQ0xh%2FClcOyjv%2BAG9hdO4rEj0Oc5%2Bfn5%2Fc%2BX3t4G4GG5yI6U3axBbMmmVmPeAS6I9iEliYeNGzBwHWBQmDUoCsYiFCPCAZgn4WgTQXg0Rr7IwNQhG1BA%2BQIILTUTvGgG5lBG9RhD6wDZIWq0DaBGz6P3XOejeiAxYJzuIrsIqrDM%2BOBC3cPbPHn3q5%2Bvr%2B2cFPvEvXtsigpcVGNy6ldkpjeJ6YlJUqxUwFu2QZTwRpmuYHjIDMXCHSNTJ6N%2FxgoZAqFbF4vj%2BQPZ3Li6YvITO8u5o4cS07ET2kT0nipKOqJo3IyO5pNDA2XpHhRLY4reS0bPz6mJXfHDJqW9iWSUkJVFFlOJGLAaDmS0qAqS8lYfTqtyqJ4KUQQhSewJu79MyjqAmQjuypMYaHQDH0aqbrYc%2Fikz3HxWWhQbvdz6GNMguKM82uiM3BhPsk7WTPswipDnDWjG8YooLW%2BDTMHp6AV3Qjke4KUZQltKBp1sGUZTIusubXjwEOW1c83Ewrdw4CV3e1Mh2oVTruXlW4yTbv9xZf%2B7YUtkqzuP%2FZxR0yVU0pMSrEQNibUFB%2BTUuxedG3pg3%2FjYePxVf%2F6k9XlRf%2FmnD%2B%2FJEmN%2BcU76%2BOB0PP3rcRHmUL60M6lhb7iaLlUyIyN5XOZGU2M%2FR%2FeMJOZEzmBX0QMdmkIb7O3abEW%2BXUiNcwg9bdNvt5HvArvl9uRlr2Jjzv%2FQnKTdAth2G1r4bYUagLuINvbrJVFIjLqVSxkRFqoWUWdlMNtZSv%2FgPb98lc92On9Xhj4Nvvcn3%2FnL8%2F6L16tPfrkr1xrvHnWuDXn31hpvH69unyFBy%2B%2B%2FLtITMH1lqBdg3eaqui6vqmIJqr%2FEcGjyBIytlfXsE0o2VNqdXK7%2BbyN9qXpofgctAc6nktSDVYAgYHeqlmuYUJ7Tso5Rfn95Tfr%2BPJmdiFicRdnvXUS2lVSQ3V2uCKlJn4ClFfAaA%3D%3D; Domain=.px.teacher.com.cn; Path=/; HttpOnly
+Via:1.1 ID-0002262002707044 uproxy-2
+
+==============================================================================================================================================================
+
+▲Form Data
+
+id=2184029&onceTime=16&inputvalcode=4704&drawerId=1549&validateType=true&token=1438137978594
+
+id:2184029
+onceTime:16
+inputvalcode:4704
+drawerId:1549
+validateType:true
+token:1438137978594

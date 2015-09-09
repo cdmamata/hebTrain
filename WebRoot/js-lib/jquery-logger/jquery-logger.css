@@ -1,0 +1,38 @@
+/** 主框架 **/
+.jq-logger-main-table{
+	width: 100%;
+	
+}
+
+/** logger 斑马线 **/
+.jq-logger-white-line{
+	background-color: white;
+	
+	height: 25px;
+}
+.jq-logger-gray-line{
+	background-color: #E8E8E8;
+	
+	height: 25px;
+}
+
+/** logger 级别 **/
+.jq-logger-info-msg{
+	color: #002E00;
+	padding: 5px 0 5px 5px;
+	font-size: 13px;
+	
+}
+.jq-logger-error-msg{
+	color: red;
+	padding: 5px 0 5px 5px;
+	font-size: 13px;
+}
+
+/** 时间 **/
+.jq-logger-timestamp-style{
+	width: 170px;
+	padding: 5px 0 5px 5px;
+	border-right: solid #6CE26C 2px;
+	color: #0000FF;
+}

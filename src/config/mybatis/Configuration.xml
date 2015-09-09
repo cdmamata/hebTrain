@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+<configuration>
+	<typeAliases>
+		
+		<!-- 登录用户 -->
+		<typeAlias alias="loginUser" type="com.ysq.hebtrain.common.entity.LoginUser"/>
+		
+		<!-- 用户权限 -->
+		<typeAlias alias="functionInfo" type="com.ysq.hebtrain.common.entity.FunctionInfo"/>
+		
+		<!-- 节点树 -->
+		<typeAlias alias="treePanelNode" type="com.ysq.hebtrain.common.entity.TreePanelNode"/>
+		
+		<!-- 客户 -->
+		<typeAlias alias="hebCustomer" type="com.ysq.hebtrain.common.entity.HebCustomer"/>
+		
+	</typeAliases>
+</configuration>

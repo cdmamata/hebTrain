@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 不拦截 websocket -->
+	<constant name="struts.action.excludePattern" value="/websocket/.*" />
+	<constant name="struts.action.excludePattern" value="/servlet/.*" />
+	
+	<!-- 拦截用户是否登录 -->
+	<package name="heb_default" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="loginInterceptor" class="com.ysq.hebtrain.common.interceptor.LoginInterceptor" />
+			<interceptor-stack name="loginInterceptorStack">
+				<interceptor-ref name="exception">
+					<param name="logEnabled">true</param>
+					<param name="logLevel">debug</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="loginInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="loginInterceptorStack" />
+		
+		<!-- 定义全局Result -->
+		<global-results>
+			<!-- 当返回login视图名时，转入/login.jsp页面 -->
+			<result name="login" type="redirect">/login</result>
+		</global-results>
+	</package>
+</struts>

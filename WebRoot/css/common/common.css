@@ -1,0 +1,85 @@
+
+/** body 居中 **/
+.bodyContentMiddle{
+	margin: 0;
+}
+
+/** body 居中且包含最小宽度 **/
+.bodyMiniWidth{
+	min-width: 1024px;
+	_width: expression((document.documentElement.clientWidth||document.body.clientWidth)<1024?"1024px":"");
+	text-align: left;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/** 居中与上面结合使用，浏览器兼容 **/
+.contentMiddleRevis{
+	text-align: left;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/** 整个body 的 table **/
+.pageBodyTable{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+/** 页眉样式 **/
+.pageHeaderPartRow{
+	height: 20px;
+	vertical-align: top;
+}
+
+/** 正文内容样式 **/
+.pageContentPartRow{
+	text-align: center;
+	vertical-align: top;
+}
+/** 页脚样式 **/
+.pageFooterPartRow{
+	height: 20px;
+	vertical-align: bottom;
+}
+
+/* 按钮 */
+span.spButton{
+	color : #0000FF !important;
+	background-color: #DFDFDF;
+	border: solid 1px #9D9D9D;
+	padding: 2px 7px 2px 7px;
+	cursor: pointer;
+}
+span.spButton:hover{
+	color: #333333 !important;
+	background-color: #C1C1C1;
+	cursor: pointer;
+}
+
+/* 表格中的按钮 */
+span.extSpButton{
+	color : #0000FF !important;
+	background-color: #F5F5F5;
+	font-size: 12px;
+	border: solid 1px #9D9D9D;
+	padding: 0;
+}
+span.extSpButton a{
+	color : #0000FF !important;
+	padding: 0 2px 0 2px;
+	text-decoration: none;
+}
+span.extSpButton:hover{
+	color: #555555 !important;
+	background-color: #CBCBCB;
+	cursor: pointer;
+}
+span.extSpButton a:hover{
+	color: #555555 !important;
+	background-color: #CBCBCB;
+	border: 0;
+	cursor: pointer;
+}
