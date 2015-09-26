@@ -9,14 +9,12 @@ public class DataSourceHandle {
 	/**
 	 * 线程本地环境
 	 */
-	@SuppressWarnings("unchecked")
-	private static final ThreadLocal contextHolder = new ThreadLocal();
+	private static final ThreadLocal<String> contextHolder = new ThreadLocal<String>();
 
 	/**
 	 * 设置数据源类型
 	 * @param dataSourceType
 	 */
-	@SuppressWarnings("unchecked")
 	public static void setDataSourceType(String dataSourceType) {
 		contextHolder.set(dataSourceType);
 	}

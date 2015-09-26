@@ -72,7 +72,7 @@ INSERT INTO `heb_function_info` VALUES ('5', '2', 'editpsd', '修改密码', 'pa
 INSERT INTO `heb_function_info` VALUES ('6', '1', 'test', '功能菜单测试', 'page/test/success.jsp', '10');
 
 insert into heb_user_function (userId, functionId) values (1, 1);
-insert into heb_user_function (userId, functionId) values (1, 1);
+insert into heb_user_function (userId, functionId) values (1, 2);
 
 -- 测试
 insert into heb_function_info (functionId, actionId, k, functionName, functionUrl, `index`) values (2, 1, 'test', '功能菜单测试', 'page/test/success.jsp', 10);

@@ -25,6 +25,8 @@ public class PostTest {
 		String password = scanner.next();
 		testPost(user_name, password, "d:/fileDown2.txt");
 		testJsoup();
+		
+		scanner.close();
 	}
 
 	public static void testPost(String user_name, String password,
@@ -107,6 +109,8 @@ public class PostTest {
 			fileOut.write(chByte);
 			chByte = inputStream1.read();
 		}
+		
+		fileOut.close();
 	}
 
 	public static String getCookies(HttpURLConnection conn) {
