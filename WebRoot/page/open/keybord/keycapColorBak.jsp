@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			/** 同一区域按键 **/
 			.keyArea{
-				background-color: #C86400;
+				background-color: #9F4000;
 				float: left;
 				padding-bottom: 4px;
 				padding-right: 4px;
@@ -37,8 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				float: left;
 				color: yellow;
 				cursor: pointer;
-				margin-top: 4px;
-				margin-left: 4px;
+				margin-top: 2px;
+				margin-left: 2px;
 				overflow: hidden;
 				text-align: center;
 				line-height: 30px;

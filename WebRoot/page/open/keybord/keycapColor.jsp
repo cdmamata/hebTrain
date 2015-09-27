@@ -32,7 +32,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				float: left;
 			}
 			
-			
 			/** 按键基础样式 **/
 			.keycapBlock{
 				float: left;
@@ -48,94 +47,74 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 			
 			/** 正方形按键 **/
-			.squareKey{
+			.keySimple{
 				width: 60px;
 				height: 60px;
 				background: url(img/key/keySimple.gif) no-repeat;
+				background-color: #FFAEC9;
+			}
+			
+			/** 字母区 回车 按键 **/
+			.keySimpleBottom{
+				width: 76px;
+				height: 60px;
+				background: url(img/key/keySimpleBottom.gif) no-repeat;
 				background-color: #E1C885;
 			}
-			/** 删除按键 **/
-			.keyBak{
-				width: 120px;
-				height: 60px;
-				background: url(img/key/key-bak.gif) no-repeat;
-				background-color: #DEACAF;
-			}
-			/** tab按键 **/
-			.keyTab{
-				width: 120px;
-				height: 60px;
-				background: url(img/key/key-tab.gif) no-repeat;
-				background-color: #DEACAF;
-			}
-			/** 竖线按键 **/
-			.keyShuxian{
-				width: 91px;
-				height: 60px;
-				background: url(img/key/key-shuxian.gif) no-repeat;
-				background-color: #DEACAF;
-			}
-			/** Caps按键 **/
-			.keyCaps{
-				width: 114px;
-				height: 60px;
-				background: url(img/key/key-caps.gif) no-repeat;
-				background-color: #DEACAF;
-			}
-			/** 字母区 回车 按键 **/
-			.keyEnterWidth{
-				width: 128px;
-				height: 60px;
-				background: url(img/key/key-enterWidth.gif) no-repeat;
-				background-color: #DEACAF;
-			}
-			/** 字母区 回车 按键 **/
-			.keyShiftLeft{
-				width: 147px;
-				height: 60px;
-				background: url(img/key/key-shiftLeft.gif) no-repeat;
-				background-color: #DEACAF;
-			}
-			/** 字母区 回车 按键 **/
-			.keyShiftRight{
-				width: 157px;
-				height: 60px;
-				background: url(img/key/key-shiftRight.gif) no-repeat;
-				background-color: #DEACAF;
-			}
-			/** 字母区 回车 按键 **/
-			.keyCtrlLeft{
-				width: 74px;
-				height: 60px;
-				background: url(img/key/key-ctrlLeft.gif) no-repeat;
-				background-color: #DEACAF;
-			}
-			/** 字母区 回车 按键 **/
-			.keySpace{
-				width: 394px;
-				height: 60px;
-				background: url(img/key/key-space.gif) no-repeat;
-				background-color: #DEACAF;
-			}
 			
-			
-			/** 字母区 回车 按键 **/
-			.keyZero{
-				width: 122px;
-				height: 60px;
-				background: url(img/key/key-zero.gif) no-repeat;
-				background-color: #DEACAF;
-			}
-			
-			/** 字母区 回车 按键 **/
-			.keyHeight{
+			/** ==================== 特殊按键拼接 ==================== **/
+			.partMain{
+				float: left;
+				color: yellow;
+				background-color: fuchsia;
 				width: 60px;
-				height: 122px;
-				background: url(img/key/key-height.gif) no-repeat;
-				background-color: #DEACAF;
+				height: 60px;
 			}
 			
+			/** 横长按键 **/
+			.partLeft{
+				float: left;
+				background: url(img/key/partLeft.gif) no-repeat;
+				height: 60px;
+				width: 11px;
+			}
+			.partHeng{
+				float: left;
+				background: url(img/key/partHeng.gif) repeat-x;
+				height: 60px;
+				width: 40px;
+				padding-top: 10px;
+				overflow: hidden;
+			}
+			.partRight{
+				float: left;
+				background: url(img/key/partRight.gif) no-repeat;
+				height: 60px;
+				width: 9px;
+			}
 			
+			/** 竖长按键 **/
+			.partTop{
+				float: left;
+				background: url(img/key/partTop.gif) no-repeat;
+				width: 60px;
+				height: 8px;
+				
+			}
+			.partShu{
+				float: left;
+				background: url(img/key/partShu.gif) repeat-y;
+				width: 60px;
+				height: 39px;
+				overflow: hidden;
+				text-align: center;
+			}
+			.partBottom{
+				float: left;
+				background: url(img/key/partBottom.gif) no-repeat;
+				width: 60px;
+				height: 13px;
+			}
 			
 		</style>
 		
@@ -159,38 +138,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 				<tr class="pageContentPartRow"><!-- 正文 -->
 					<td>
-						<div class="contentMiddleRevis" style="width: 1500px;">
+						<div class="contentMiddleRevis" style="width: 1600px;">
 							
 							<!-- ===================================================================================================================== -->
 							
 							
-							<div id="colorKeyDIv" style="background: url(img/key/chuYin.jpg) no-repeat; width: 1390px; border: 4px solid black; padding: 20px; margin-top: 20px;">
+							<div id="colorKeyDIv" style="background: url(img/key/chuYin.jpg) no-repeat; width: 1388px; border: 4px solid black; padding: 20px; margin-top: 20px;">
 								
 								<div>
 									<!-- esc 区 -->
 									<div class="keyArea" style="width: 62px;">
 										<div class="oneKeyRow" style="">
-											<div class="keycapBlock squareKey" style="">Esc</div>
+											<div class="keycapBlock keySimple" style="">Esc</div>
 										</div>
 									</div>
 									
 									<!-- F1 - F4区 -->
 									<div class="keyArea" style="width: 248px; margin-left: 60px;">
 										<div class="oneKeyRow" style="">
-											<div class="keycapBlock squareKey" style="">F1</div>
-											<div class="keycapBlock squareKey" style="">F2</div>
-											<div class="keycapBlock squareKey" style="">F3</div>
-											<div class="keycapBlock squareKey" style="">F4</div>
+											<div class="keycapBlock keySimple" style="">F1</div>
+											<div class="keycapBlock keySimple" style="">F2</div>
+											<div class="keycapBlock keySimple" style="">F3</div>
+											<div class="keycapBlock keySimple" style="">F4</div>
 										</div>
 									</div>
 									
 									<!-- F5 - F8区 -->
 									<div class="keyArea" style="width: 248px; margin-left: 28px;">
 										<div class="oneKeyRow" style="">
-											<div class="keycapBlock squareKey" style="">F5</div>
-											<div class="keycapBlock squareKey" style="">F6</div>
-											<div class="keycapBlock squareKey" style="">F7</div>
-											<div class="keycapBlock squareKey" style="">F8</div>
+											<div class="keycapBlock keySimple" style="">F5</div>
+											<div class="keycapBlock keySimple" style="">F6</div>
+											<div class="keycapBlock keySimple" style="">F7</div>
+											<div class="keycapBlock keySimple" style="">F8</div>
 											
 										</div>
 									</div>
@@ -198,10 +177,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<!-- F9 - F12区 -->
 									<div class="keyArea" style="width: 248px; margin-left: 28px;">
 										<div class="oneKeyRow" style="">
-											<div class="keycapBlock squareKey" style="">F9</div>
-											<div class="keycapBlock squareKey" style="">F10</div>
-											<div class="keycapBlock squareKey" style="">F11</div>
-											<div class="keycapBlock squareKey" style="">F12</div>
+											<div class="keycapBlock keySimple" style="">F9</div>
+											<div class="keycapBlock keySimple" style="">F10</div>
+											<div class="keycapBlock keySimple" style="">F11</div>
+											<div class="keycapBlock keySimple" style="">F12</div>
 											
 										</div>
 									</div>
@@ -209,9 +188,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<!-- print 功能区 -->
 									<div class="keyArea" style="width: 186px; margin-left: 10px;">
 										<div class="oneKeyRow" style="">
-											<div class="keycapBlock squareKey" style="">PrtSc</div>
-											<div class="keycapBlock squareKey" style="">Scroll</div>
-											<div class="keycapBlock squareKey" style="">Pause</div>
+											<div class="keycapBlock keySimple" style="">PrtSc</div>
+											<div class="keycapBlock keySimple" style="">Scroll</div>
+											<div class="keycapBlock keySimple" style="">Pause</div>
 											
 										</div>
 									</div>
@@ -228,169 +207,208 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<div style="margin-top: 10px;">
 									<div style="width: 930px; float: left;">
 										<!-- 字母区 -->
-										<div class="keyArea" style="width: 928px;">
+										<div class="keyArea" style="">
 											<div class="oneKeyRow" style="">
-												<div class="keycapBlock squareKey" style="">`~</div>
-												<div class="keycapBlock squareKey" style="">1</div>
-												<div class="keycapBlock squareKey" style="">2</div>
-												<div class="keycapBlock squareKey" style="">3</div>
-												<div class="keycapBlock squareKey" style="">4</div>
-												<div class="keycapBlock squareKey" style="">5</div>
-												<div class="keycapBlock squareKey" style="">6</div>
-												<div class="keycapBlock squareKey" style="">7</div>
-												<div class="keycapBlock squareKey" style="">8</div>
-												<div class="keycapBlock squareKey" style="">9</div>
-												<div class="keycapBlock squareKey" style="">0</div>
-												<div class="keycapBlock squareKey" style="">-</div>
-												<div class="keycapBlock squareKey" style="">=</div>
-												<div class="keycapBlock keyBak" style="width: 120px;">←bak</div>
+												<div class="keycapBlock keySimple" style="">`~</div>
+												<div class="keycapBlock keySimple" style="">1</div>
+												<div class="keycapBlock keySimple" style="">2</div>
+												<div class="keycapBlock keySimple" style="">3</div>
+												<div class="keycapBlock keySimple" style="">4</div>
+												<div class="keycapBlock keySimple" style="">5</div>
+												<div class="keycapBlock keySimple" style="">6</div>
+												<div class="keycapBlock keySimple" style="">7</div>
+												<div class="keycapBlock keySimple" style="">8</div>
+												<div class="keycapBlock keySimple" style="">9</div>
+												<div class="keycapBlock keySimple" style="">0</div>
+												<div class="keycapBlock keySimple" style="">-</div>
+												<div class="keycapBlock keySimple" style="">=</div>
+												<div class="keycapBlock partMain" style="width: 120px;">
+													<div class="partLeft"></div>
+													<div class="partHeng" style="width: 100px;">←Bak</div>
+													<div class="partRight"></div>
+												</div>
 											</div>
 											
 											<div class="oneKeyRow" style="">
-												<div class="keycapBlock keyTab" style="width: 89px;">tab</div>
-												<div class="keycapBlock squareKey" style="">Q</div>
-												<div class="keycapBlock squareKey" style="">W</div>
-												<div class="keycapBlock squareKey" style="">E</div>
-												<div class="keycapBlock squareKey" style="">R</div>
-												<div class="keycapBlock squareKey" style="">T</div>
-												<div class="keycapBlock squareKey" style="">Y</div>
-												<div class="keycapBlock squareKey" style="">U</div>
-												<div class="keycapBlock squareKey" style="">I</div>
-												<div class="keycapBlock squareKey" style="">O</div>
-												<div class="keycapBlock squareKey" style="">P</div>
-												<div class="keycapBlock squareKey" style="">[</div>
-												<div class="keycapBlock squareKey" style="">]</div>
-												<div class="keycapBlock keyShuxian" style="width: 91px;">|</div>
-												
+												<div class="keycapBlock partMain" style="width: 89px;">
+													<div class="partLeft"></div>
+													<div class="partHeng" style="width: 69px;">Tab</div>
+													<div class="partRight"></div>
+												</div>
+												<div class="keycapBlock keySimple" style="">Q</div>
+												<div class="keycapBlock keySimple" style="">W</div>
+												<div class="keycapBlock keySimple" style="">E</div>
+												<div class="keycapBlock keySimple" style="">R</div>
+												<div class="keycapBlock keySimple" style="">T</div>
+												<div class="keycapBlock keySimple" style="">Y</div>
+												<div class="keycapBlock keySimple" style="">U</div>
+												<div class="keycapBlock keySimple" style="">I</div>
+												<div class="keycapBlock keySimple" style="">O</div>
+												<div class="keycapBlock keySimple" style="">P</div>
+												<div class="keycapBlock keySimple" style="">[</div>
+												<div class="keycapBlock keySimple" style="">]</div>
+												<div class="keycapBlock partMain" style="width: 91px;">
+													<div class="partLeft"></div>
+													<div class="partHeng" style="width: 71px;">\|</div>
+													<div class="partRight"></div>
+												</div>
 											</div>
 											
 											<div class="oneKeyRow" style="">
-												<div class="keycapBlock keyCaps" style="width: 114px;">Caps</div>
-												<div class="keycapBlock squareKey" style="">A</div>
-												<div class="keycapBlock squareKey" style="">S</div>
-												<div class="keycapBlock squareKey" style="">D</div>
-												<div class="keycapBlock squareKey" style="">F</div>
-												<div class="keycapBlock squareKey" style="">G</div>
-												<div class="keycapBlock squareKey" style="">H</div>
-												<div class="keycapBlock squareKey" style="">J</div>
-												<div class="keycapBlock squareKey" style="">K</div>
-												<div class="keycapBlock squareKey" style="">L</div>
-												<div class="keycapBlock squareKey" style="">;</div>
-												<div class="keycapBlock squareKey" style="">"</div>
-												<div class="keycapBlock keyEnterWidth" style="width: 128px;">Enter</div>
-												
+												<div class="keycapBlock partMain" style="width: 114px;">
+													<div class="partLeft"></div>
+													<div class="partHeng" style="width: 94px;">Caps</div>
+													<div class="partRight"></div>
+												</div>
+												<div class="keycapBlock keySimple" style="">A</div>
+												<div class="keycapBlock keySimple" style="">S</div>
+												<div class="keycapBlock keySimple" style="">D</div>
+												<div class="keycapBlock keySimple" style="">F</div>
+												<div class="keycapBlock keySimple" style="">G</div>
+												<div class="keycapBlock keySimple" style="">H</div>
+												<div class="keycapBlock keySimple" style="">J</div>
+												<div class="keycapBlock keySimple" style="">K</div>
+												<div class="keycapBlock keySimple" style="">L</div>
+												<div class="keycapBlock keySimple" style="">;</div>
+												<div class="keycapBlock keySimple" style="">"</div>
+												<div class="keycapBlock partMain" style="width: 128px;">
+													<div class="partLeft"></div>
+													<div class="partHeng" style="width: 108px;">Enter</div>
+													<div class="partRight"></div>
+												</div>
 											</div>
 											
 											<div class="oneKeyRow" style="">
-												<div class="keycapBlock keyShiftLeft" style="width: 147px;">Shift</div>
-												<div class="keycapBlock squareKey" style="">Z</div>
-												<div class="keycapBlock squareKey" style="">X</div>
-												<div class="keycapBlock squareKey" style="">C</div>
-												<div class="keycapBlock squareKey" style="">V</div>
-												<div class="keycapBlock squareKey" style="">B</div>
-												<div class="keycapBlock squareKey" style="">N</div>
-												<div class="keycapBlock squareKey" style="">M</div>
-												<div class="keycapBlock squareKey" style="">&lt;</div>
-												<div class="keycapBlock squareKey" style="">&gt;</div>
-												<div class="keycapBlock squareKey" style="">?</div>
-												<div class="keycapBlock keyShiftRight" style="width: 157px;">Shift</div>
-												
+												<div class="keycapBlock partMain" style="width: 151px;">
+													<div class="partLeft"></div>
+													<div class="partHeng" style="width: 127px;">Shift</div>
+													<div class="partRight"></div>
+												</div>
+												<div class="keycapBlock keySimple" style="">Z</div>
+												<div class="keycapBlock keySimple" style="">X</div>
+												<div class="keycapBlock keySimple" style="">C</div>
+												<div class="keycapBlock keySimple" style="">V</div>
+												<div class="keycapBlock keySimple" style="">B</div>
+												<div class="keycapBlock keySimple" style="">N</div>
+												<div class="keycapBlock keySimple" style="">M</div>
+												<div class="keycapBlock keySimple" style="">&lt;</div>
+												<div class="keycapBlock keySimple" style="">&gt;</div>
+												<div class="keycapBlock keySimple" style="">?</div>
+												<div class="keycapBlock partMain" style="width: 153px;">
+													<div class="partLeft"></div>
+													<div class="partHeng" style="width: 133px;">Shift</div>
+													<div class="partRight"></div>
+												</div>
 											</div>
 											
 											<div class="oneKeyRow" style="">
-												<div class="keycapBlock keyCtrlLeft" style="width: 74px;">Ctrl</div>
-												<div class="keycapBlock keyCtrlLeft" style="width: 74px;">田</div>
-												<div class="keycapBlock keyCtrlLeft" style="width: 74px;">Alt</div>
-												<div class="keycapBlock keySpace" style="width: 394px;">Space</div>
-												<div class="keycapBlock keyCtrlLeft" style="width: 74px;">Alt</div>
-												<div class="keycapBlock keyCtrlLeft" style="width: 74px;">田</div>
-												<div class="keycapBlock keyCtrlLeft" style="width: 74px;">Fn</div>
-												<div class="keycapBlock keyCtrlLeft" style="width: 74px;">Ctrl</div>
+												<div class="keycapBlock keySimpleBottom" style="width: 76px;">Ctrl</div>
+												<div class="keycapBlock keySimpleBottom" style="width: 76px;">田</div>
+												<div class="keycapBlock keySimpleBottom" style="width: 76px;">Alt</div>
+												<div class="keycapBlock partMain" style="width: 380px;">
+													<div class="partLeft"></div>
+													<div class="partHeng" style="width: 360px;">Space</div>
+													<div class="partRight"></div>
+												</div>
 												
+												<div class="keycapBlock keySimpleBottom" style="width: 76px;">Alt</div>
+												<div class="keycapBlock keySimpleBottom" style="width: 76px;">田</div>
+												<div class="keycapBlock keySimpleBottom" style="width: 76px;">Fn</div>
+												<div class="keycapBlock keySimpleBottom" style="width: 76px;">Ctrl</div>
 											</div>
 										</div>
 									</div>
 									
-									<div style="float: left; width: 186px; margin-left: 10px;">
+									<div style="float: left; width: 188px; margin-left: 10px;">
 										<!-- 功能键 -->
-										<div class="keyArea" style="width: 186px; height: 124px;">
+										<div class="keyArea" style="">
 											<div class="oneKeyRow" style="">
-												<div class="keycapBlock squareKey" style="">Ins</div>
-												<div class="keycapBlock squareKey" style="">Home</div>
-												<div class="keycapBlock squareKey" style="">PgUp</div>
-												
+												<div class="keycapBlock keySimple" style="">Ins</div>
+												<div class="keycapBlock keySimple" style="">Home</div>
+												<div class="keycapBlock keySimple" style="">PgUp</div>
 											</div>
 											
 											<div class="oneKeyRow" style="">
-												<div class="keycapBlock squareKey" style="">Del</div>
-												<div class="keycapBlock squareKey" style="">End</div>
-												<div class="keycapBlock squareKey" style="">PgDn</div>
+												<div class="keycapBlock keySimple" style="">Del</div>
+												<div class="keycapBlock keySimple" style="">End</div>
+												<div class="keycapBlock keySimple" style="">PgDn</div>
 												
 											</div>
 											
 										</div>
 									
 										<!-- 方向键 -->
-										<div class="keyArea" style="padding-bottom: 0; width: 62px; height: 62px; margin-top: 60px; margin-left: 62px;">
+										<div class="keyArea" style="padding-bottom: 0; margin-top: 60px; margin-left: 64px;">
 											<div class="oneKeyRow" style="">
-												<div class="keycapBlock squareKey" style="">↑</div>
+												<div class="keycapBlock keySimple" style="">↑</div>
 											</div>
 										</div>
-										<div class="keyArea" style="width: 186px; height: 62px;">
+										<div class="keyArea" style="">
 											<div class="oneKeyRow" style="">
-												<div class="keycapBlock squareKey" style="">←</div>
-												<div class="keycapBlock squareKey" style="">↓</div>
-												<div class="keycapBlock squareKey" style="">→</div>
+												<div class="keycapBlock keySimple" style="">←</div>
+												<div class="keycapBlock keySimple" style="">↓</div>
+												<div class="keycapBlock keySimple" style="">→</div>
 												
 											</div>
 										</div>
 									</div>
 									
-									<div style="float: left; width: 248px; margin-left: 10px;">
+									<div style="float: left; width: 250px; margin-left: 10px;">
 										<!-- 小键盘 -->
 										
-										
-										<div class="keyArea" style="width: 248px;">
+										<div class="keyArea" style="">
 											<div style="width: 186px; float: left;">
 												<div class="oneKeyRow" style="">
-													<div class="keycapBlock squareKey" style="">Num</div>
-													<div class="keycapBlock squareKey" style="">/</div>
-													<div class="keycapBlock squareKey" style="">*</div>
+													<div class="keycapBlock keySimple" style="">Num</div>
+													<div class="keycapBlock keySimple" style="">/</div>
+													<div class="keycapBlock keySimple" style="">*</div>
 												</div>
 												
 												<div class="oneKeyRow" style="">
-													<div class="keycapBlock squareKey" style="">7</div>
-													<div class="keycapBlock squareKey" style="">8</div>
-													<div class="keycapBlock squareKey" style="">9</div>
-													
-												</div>
-												
-												<div class="oneKeyRow" style="width: 186px; ">
-													<div class="keycapBlock squareKey" style="">4</div>
-													<div class="keycapBlock squareKey" style="">5</div>
-													<div class="keycapBlock squareKey" style="">6</div>
+													<div class="keycapBlock keySimple" style="">7</div>
+													<div class="keycapBlock keySimple" style="">8</div>
+													<div class="keycapBlock keySimple" style="">9</div>
 													
 												</div>
 												
 												<div class="oneKeyRow" style="">
-													<div class="keycapBlock squareKey" style="">1</div>
-													<div class="keycapBlock squareKey" style="">2</div>
-													<div class="keycapBlock squareKey" style="">3</div>
+													<div class="keycapBlock keySimple" style="">4</div>
+													<div class="keycapBlock keySimple" style="">5</div>
+													<div class="keycapBlock keySimple" style="">6</div>
 													
 												</div>
 												
 												<div class="oneKeyRow" style="">
-													<div class="keycapBlock keyZero" style="width: 122px;">0</div>
-													<div class="keycapBlock squareKey" style="">.</div>
+													<div class="keycapBlock keySimple" style="">1</div>
+													<div class="keycapBlock keySimple" style="">2</div>
+													<div class="keycapBlock keySimple" style="">3</div>
+													
+												</div>
+												
+												<div class="oneKeyRow" style="">
+													<div class="keycapBlock partMain" style="width: 122px;">
+														<div class="partLeft"></div>
+														<div class="partHeng" style="width: 102px;">0</div>
+														<div class="partRight"></div>
+													</div>
+													<div class="keycapBlock keySimple" style="">.</div>
 													
 												</div>
 											</div>
 											
 											<div style="width: 62px; float: left;">
 												<div class="oneKeyRow" style="">
-													<div class="keycapBlock squareKey" style="">-</div>
-													<div class="keycapBlock keyHeight" style="height: 122px;">+</div>
-													<div class="keycapBlock keyHeight" style="height: 122px;">Enter</div>
+													<div class="keycapBlock keySimple" style="">-</div>
+													<div class="keycapBlock partMain" style="height: 122px;">
+														<div class="partTop"></div>
+														<div class="partShu" style="height: 101px;">+</div>
+														<div class="partBottom"></div>
+													</div>
+													<div class="keycapBlock partMain" style="height: 122px;">
+														<div class="partTop"></div>
+														<div class="partShu" style="height: 101px;">Enter</div>
+														<div class="partBottom"></div>
+													</div>
 												</div>
 											</div>
 											
@@ -404,6 +422,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								
 								
 							</div>
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
 							
 							<!-- ===================================================================================================================== -->
 						</div>

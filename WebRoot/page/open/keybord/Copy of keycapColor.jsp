@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			/** 同一区域按键 **/
 			.keyArea{
-				background-color: #C86400;
+				background-color: purple;
 				float: left;
 				padding-bottom: 2px;
 				padding-right: 2px;
@@ -51,8 +51,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			.squareKey{
 				width: 60px;
 				height: 60px;
-				background: url(img/key/square.gif) no-repeat;
-				
+				background: url(img/key/keySimple.gif) no-repeat;
+				background-color: #E1C885;
 			}
 			/** 删除按键 **/
 			.keyBak{
@@ -135,7 +135,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				background-color: #DEACAF;
 			}
 			
+			/** 颜色值域 **/
+			.colorInput{
+				width: 60px;
+				position: absolute;
+				top: 0;
+			}
 			
+			.colorInput input[type='text']{
+				width: 60px;
+				color: red;
+				
+			}
 			
 		</style>
 		
@@ -164,13 +175,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<!-- ===================================================================================================================== -->
 							
 							
-							<div id="colorKeyDIv" style="background-color: white; width: 1400px; border: 4px solid black; padding: 20px; margin-top: 20px;">
+							<div id="colorKeyDIv" style="background: url(img/key/chuYin.jpg) no-repeat; width: 1390px; border: 4px solid black; padding: 20px; margin-top: 20px;">
 								
 								<div>
 									<!-- esc 区 -->
 									<div class="keyArea" style="width: 62px;">
 										<div class="oneKeyRow" style="">
-											<div class="keycapBlock squareKey" style="">Esc</div>
+											<div class="keycapBlock squareKey" style="position: relative;">Esc
+												<div class="colorInput">
+													<input type="text" class="" style="">
+													<input type="button" value="确定">
+												</div>
+											</div>
 										</div>
 									</div>
 									
@@ -404,17 +420,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								
 								
 							</div>
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
 							
 							<!-- ===================================================================================================================== -->
 						</div>
