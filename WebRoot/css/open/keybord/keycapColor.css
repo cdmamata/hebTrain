@@ -1,0 +1,112 @@
+/** ========== 键帽配色 ========== **/
+
+/** 同一区域按键 **/
+.keyArea{
+	background-color: purple;
+	float: left;
+	padding-bottom: 2px;
+	padding-right: 2px;
+}
+
+/** 区域中的一行 **/
+.oneKeyRow{
+	float: left;
+}
+
+/** 按键基础样式 **/
+.keycapBlock{
+	float: left;
+	color: yellow;
+	cursor: pointer;
+	margin-top: 2px;
+	margin-left: 2px;
+	overflow: hidden;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bolder;
+	position: relative;
+	background-color: #DEACAF;
+}
+
+/** 正方形按键 **/
+.keySimple{
+	width: 60px;
+	height: 60px;
+	background: url(../../../img/key/keySimple.gif) no-repeat;
+	background-color: #FFAEC9;
+}
+
+/** 字母区 回车 按键 **/
+.keySimpleBottom{
+	width: 76px;
+	height: 60px;
+	background: url(../../../img/key/keySimpleBottom.gif) no-repeat;
+	background-color: #E1C885;
+}
+
+/** ==================== 特殊按键拼接 ==================== **/
+.partMain{
+	float: left;
+	color: yellow;
+	background-color: fuchsia;
+	width: 60px;
+	height: 60px;
+}
+
+/** 横长按键 **/
+.partLeft{
+	float: left;
+	background: url(../../../img/key/partLeft.gif) no-repeat;
+	height: 60px;
+	width: 11px;
+}
+.partHeng{
+	float: left;
+	background: url(../../../img/key/partHeng.gif) repeat-x;
+	height: 60px;
+	width: 40px;
+	padding-top: 10px;
+	overflow: hidden;
+}
+.partRight{
+	float: left;
+	background: url(../../../img/key/partRight.gif) no-repeat;
+	height: 60px;
+	width: 9px;
+}
+
+/** 竖长按键 **/
+.partTop{
+	float: left;
+	background: url(../../../img/key/partTop.gif) no-repeat;
+	width: 60px;
+	height: 8px;
+	
+}
+.partShu{
+	float: left;
+	background: url(../../../img/key/partShu.gif) repeat-y;
+	width: 60px;
+	height: 39px;
+	overflow: hidden;
+	text-align: center;
+}
+.partBottom{
+	float: left;
+	background: url(../../../img/key/partBottom.gif) no-repeat;
+	width: 60px;
+	height: 13px;
+}
+
+/** 颜色值域 **/
+.colorInput{
+	width: 60px;
+	position: absolute;
+	top: 0;
+}
+
+.colorInput input[type='text']{
+	width: 60px;
+	color: red;
+	
+}
